@@ -1,35 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react'
+import Collapse from './Collapse'
 
-function App() {
-  const [count, setCount] = useState(0)
+const App: React.FC = () => {
+	return (
+		<div className='App'>
+			<h1 style={{ textAlign: 'center', marginBottom: '20px' }}>
+				Пример компонента Collapse
+			</h1>
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+			<div style={{ maxWidth: '600px', margin: '0 auto' }}>
+				<Collapse
+					collapsedLabel='Показать больше'
+					expandedLabel='Показать меньше'
+				>
+					<div className='card'>
+						Это содержимое первого Collapse компонента. Здесь можно написать что
+						угодно, и оно будет скрыто, пока пользователь не развернет его.
+					</div>
+				</Collapse>
+
+				<Collapse
+					collapsedLabel='Открыть детали'
+					expandedLabel='Закрыть детали'
+				>
+					<div className='card'>
+						Это второй пример компонента Collapse с другим текстом. Анимация и
+						стили остаются такими же, как и для первого компонента.
+					</div>
+				</Collapse>
+			</div>
+		</div>
+	)
 }
 
 export default App
